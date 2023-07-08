@@ -4,6 +4,7 @@ import "ds-test/test.sol";
 import "../Shop/ShopFactory.sol";
 import "../Ethernaut.sol";
 import "./utils/vm.sol";
+import "../Shop/ShopHack.sol";
 
 contract ShopTest is DSTest {
     Vm vm = Vm(address(0x7109709ECfa91a80626fF3989D68f67F5b1DD12D));
@@ -29,6 +30,8 @@ contract ShopTest is DSTest {
         // LEVEL ATTACK //
         //////////////////
 
+        ShopHack shopHack = new ShopHack(levelAddress);
+        shopHack.attack();
 
         //////////////////////
         // LEVEL SUBMISSION //
