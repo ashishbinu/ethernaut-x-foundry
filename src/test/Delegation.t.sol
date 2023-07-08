@@ -29,6 +29,9 @@ contract DelegationTest is DSTest {
         // LEVEL ATTACK //
         //////////////////
 
+        Delegate(address(ethernautDelegation)).pwn();
+        // address(ethernautDelegation).call(abi.encodeWithSignature("pwn()"));
+
         //////////////////////
         // LEVEL SUBMISSION //
         //////////////////////
