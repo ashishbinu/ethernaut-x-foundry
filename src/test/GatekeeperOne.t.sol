@@ -4,15 +4,19 @@ import "ds-test/test.sol";
 import "../GatekeeperOne/GatekeeperOneFactory.sol";
 import "../Ethernaut.sol";
 import "./utils/vm.sol";
+import "../GatekeeperOne/GatekeeperOneHack.sol";
 
 contract GatekeeperOneTest is DSTest {
     Vm vm = Vm(address(0x7109709ECfa91a80626fF3989D68f67F5b1DD12D));
     Ethernaut ethernaut;
 
+    // event log_named_bytes(string key, bytes8 _key);
+
     function setUp() public {
         // Setup instance of the Ethernaut contracts
         ethernaut = new Ethernaut();
     }
+
 
     function testGatekeeperOneHack() public {
         /////////////////
@@ -30,7 +34,11 @@ contract GatekeeperOneTest is DSTest {
         // LEVEL ATTACK //
         //////////////////
 
-        
+        //calculate key
+        bytes8 key = bytes8(uint64(0xffffffff00000000) + uint64(uint16(uint160(tx.origin))));
+        GatekeeperOneHack gatekeeperOneHack = new GatekeeperOneHack(levelAddress);
+        gatekeeperOneHack.attack(key);
+
         //////////////////////
         // LEVEL SUBMISSION //
         //////////////////////
