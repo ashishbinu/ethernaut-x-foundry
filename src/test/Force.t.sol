@@ -4,6 +4,7 @@ import "ds-test/test.sol";
 import "../Force/ForceFactory.sol";
 import "../Ethernaut.sol";
 import "./utils/vm.sol";
+import "../Force/ForceHack.sol";
 
 contract ForceTest is DSTest {
     Vm vm = Vm(address(0x7109709ECfa91a80626fF3989D68f67F5b1DD12D));
@@ -33,6 +34,9 @@ contract ForceTest is DSTest {
         //////////////////
         // LEVEL ATTACK //
         //////////////////
+
+        ForceHack forceHack = new ForceHack();
+        forceHack.attack{value : 1 ether}(address(ethernautForce));
 
 
         //////////////////////
