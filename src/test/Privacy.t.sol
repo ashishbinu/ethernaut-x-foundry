@@ -29,6 +29,9 @@ contract PrivacyTest is DSTest {
         // LEVEL ATTACK //
         //////////////////
 
+        bytes32 key = vm.load(levelAddress, bytes32(uint256(5)));
+        ethernautPrivacy.unlock(bytes16(key));
+
         //////////////////////
         // LEVEL SUBMISSION //
         //////////////////////
