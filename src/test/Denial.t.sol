@@ -4,6 +4,7 @@ import "ds-test/test.sol";
 import "../Denial/DenialFactory.sol";
 import "../Ethernaut.sol";
 import "./utils/vm.sol";
+import "../Denial/DenialHack.sol";
 
 
 contract DenialTest is DSTest {
@@ -32,6 +33,9 @@ contract DenialTest is DSTest {
         //////////////////
         // LEVEL ATTACK //
         //////////////////
+
+        DenialHack denialHack = new DenialHack(address(ethernautDenial));
+        denialHack.attack();
 
         //////////////////////
         // LEVEL SUBMISSION //
