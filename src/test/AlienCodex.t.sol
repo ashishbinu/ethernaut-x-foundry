@@ -18,7 +18,7 @@ contract AlienCodexTest is DSTest {
         /////////////////
         // LEVEL SETUP //
         /////////////////
-        bytes memory bytecode = abi.encodePacked(vm.getCode("./src/AlienCodex/AlienCodex.json"));
+        bytes memory bytecode = abi.encodePacked(vm.getCode("AlienCodex.sol:AlienCodex"));
         address alienCodex;
 
         // level needs to be deployed this way as it only works with 0.5.0 solidity version
