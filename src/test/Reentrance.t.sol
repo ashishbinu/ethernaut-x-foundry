@@ -4,6 +4,7 @@ import "ds-test/test.sol";
 import "../Reentrance/ReentranceFactory.sol";
 import "../Ethernaut.sol";
 import "./utils/vm.sol";
+import "../Reentrance/ReentranceHack.sol";
 
 contract ReentranceTest is DSTest {
     Vm vm = Vm(address(0x7109709ECfa91a80626fF3989D68f67F5b1DD12D));
@@ -31,6 +32,9 @@ contract ReentranceTest is DSTest {
         //////////////////
         // LEVEL ATTACK //
         //////////////////
+
+        ReentranceHack reentranceHack = new ReentranceHack(address(ethernautReentrance));
+        reentranceHack.attack{value: 1 ether}();
 
         //////////////////////
         // LEVEL SUBMISSION //
