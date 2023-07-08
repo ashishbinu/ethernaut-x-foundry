@@ -3,6 +3,7 @@ pragma solidity ^0.8.10;
 import "ds-test/test.sol";
 import "../Elevator/ElevatorFactory.sol";
 import "../Ethernaut.sol";
+import "../Elevator/ElevatorHack.sol";
 
 contract ElevatorTest is DSTest {
     Ethernaut ethernaut;
@@ -25,6 +26,9 @@ contract ElevatorTest is DSTest {
         //////////////////
         // LEVEL ATTACK //
         //////////////////
+
+        ElevatorHack elevatorHack = new ElevatorHack(levelAddress);
+        elevatorHack.attack();
 
         //////////////////////
         // LEVEL SUBMISSION //
