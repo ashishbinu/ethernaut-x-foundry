@@ -4,6 +4,7 @@ import "ds-test/test.sol";
 import "../Telephone/TelephoneFactory.sol";
 import "../Ethernaut.sol";
 import "./utils/vm.sol";
+import "../Telephone/TelephoneHack.sol";
 
 contract TelephoneTest is DSTest {
     Vm vm = Vm(address(0x7109709ECfa91a80626fF3989D68f67F5b1DD12D));
@@ -15,7 +16,6 @@ contract TelephoneTest is DSTest {
     }
 
     function testTelephoneHack() public {
-
         /////////////////
         // LEVEL SETUP //
         /////////////////
@@ -26,10 +26,12 @@ contract TelephoneTest is DSTest {
         address levelAddress = ethernaut.createLevelInstance(telephoneFactory);
         Telephone ethernautTelephone = Telephone(payable(levelAddress));
 
-
         //////////////////
         // LEVEL ATTACK //
         //////////////////
+
+        TelephoneHack telephoneHack = new TelephoneHack(address(ethernautTelephone));
+        telephoneHack.attack();
 
         //////////////////////
         // LEVEL SUBMISSION //
